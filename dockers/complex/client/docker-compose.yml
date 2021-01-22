@@ -1,0 +1,14 @@
+version: "3"
+services:
+  client_tests:
+    command: ["nodemon", "--exec", "npm", "test"]
+    build:
+      # dockerfile specify krni ki zaroroat isi lye parhi kiun k .dev file hai na isi liye
+      dockerfile: ./client/Dockerfile.dev
+      #context ka matlab yeh hai k yahan apko dockerfile mile gi.
+      context: ./client
+    volumes:
+      # isko map na krna
+      - /app/node_modules
+      # isko map krdo
+      - .:/app
